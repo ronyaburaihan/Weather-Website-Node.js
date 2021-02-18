@@ -17,9 +17,9 @@ weatherForm.addEventListener('submit', (e) => {
                     messageOne.textContent = data.error
                     messageTwo.textContent = ''
                 } else {
-                    messageOne.textContent = 'Weather in '+location
+                    messageOne.textContent = 'Weather in ' + data.location
                     //console.log(data)
-                    messageTwo.textContent = data.main.temp + ' Kelvin'
+                    messageTwo.textContent = kelvinToCelsius(data.temp) + '° Celsius. Currently its ' + data.main + ', ' + data.description
                 }
             })
         })
@@ -27,3 +27,7 @@ weatherForm.addEventListener('submit', (e) => {
         messageOne.textContent = 'Enter an addess'
     }
 })
+
+function kelvinToCelsius(kelvin) {
+    return parseInt(kelvin - 273.15)
+}

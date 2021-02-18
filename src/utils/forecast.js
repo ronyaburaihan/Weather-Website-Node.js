@@ -8,7 +8,7 @@ const forecast = (latitude,longitude, callback) => {
         } else if (body.message){
             callback(body.message, undefined)
         } else {
-           callback(undefined, body)
+           callback(undefined, body.weather[0], body.main)
         }
     })
 }
